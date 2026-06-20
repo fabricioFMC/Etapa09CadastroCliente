@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cliente</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        .form-container { max-width: 500px; margin: 30px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        .btn-save { background: #007bff; color: white; border: none; padding: 10px 20px; cursor: pointer; width: 100%; border-radius: 4px; }
+        .btn-save:hover { background: #0056b3; }
+        .link-voltar { display: block; text-align: center; margin-top: 10px; color: #666; }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2 th:text="${pessoa.id == null} ? 'Novo Cadastro' : 'Editar Cadastro'">Cadastro</h2>
+        
+        <form th:action="@{/salvar}" th:object="${pessoa}" method="post">
+            
+            <!-- Campo Oculto (ID) - Essencial para o Spring saber que é uma edição -->
+            <input type="hidden" th:field="*{id}">
+
+            <div class="form-group">
+                <label>Nome:</label>
+                <input type="text" th:field="*{nome}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Sobrenome:</label>
+                <input type="text" th:field="*{sobrenome}">
+            </div>
+
+            <div class="form-group">
+                <label>Telefone:</label>
+                <input type="text" th:field="*{telefone}">
+            </div>
+
+            <div class="form-group">
+                <label>CPF:</label>
+                <input type="text" th:field="*{cpf}">
+            </div>
+
+            <div class="form-group">
+                <label>Endereço:</label>
+                <input type="text" th:field="*{endereco}">
+            </div>
+
+            <button type="submit" class="btn-save">Salvar Dados</button>
+        </form>
+
+        <a href="/listagem" class="link-voltar">Voltar para a Listagem</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão de Clientes</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <header>
+        <nav class="container-nav">
+            <h1>Gestão de Clientes</h1>
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/listagem}">Listar Clientes</a></li>
+                <li><a th:href="@{/cadastro}">Novo Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Bem-vindo ao Sistema</h2>
+        <p>Utilize o menu acima para navegar pelas funcionalidades de cadastro e controle de clientes.</p>
+        
+        <div class="card-home">
+            <h3>Resumo do Sistema</h3>
+            <p>Este sistema permite realizar as operações básicas de:</p>
+            <ul>
+                <li><strong>Cadastro:</strong> Registro completo de novos clientes.</li>
+                <li><strong>Listagem:</strong> Visualização de todos os registros.</li>
+                <li><strong>Manutenção:</strong> Edição e exclusão de dados.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

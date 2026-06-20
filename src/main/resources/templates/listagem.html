@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        .container-list { max-width: 1000px; margin: 30px auto; background: #fff; padding: 20px; border-radius: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f8f9fa; }
+        .btn-edit { color: #007bff; text-decoration: none; margin-right: 10px; }
+        .btn-delete { color: #dc3545; cursor: pointer; border: none; background: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <div class="container-list">
+        <h2>Clientes Cadastrados</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Telefone</th> <th>CPF</th>
+                    <th>Endereço</th> <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${pessoas}">
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.nome}"></td>
+                    <td th:text="${p.sobrenome}"></td>
+                    <td th:text="${p.telefone}"></td> <td th:text="${p.cpf}"></td>
+                    <td th:text="${p.endereco}"></td> <td>
+                        <a th:href="@{/editar/{id}(id=${p.id})}" class="btn-edit">Editar</a>
+                        
+                        <button class="btn-delete" 
+                                th:data-id="${p.id}" 
+                                th:data-nome="${p.nome}" 
+                                onclick="confirmarExclusao(this)">
+                            Excluir
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-top: 20px;">
+            <a href="/cadastro">Adicionar Novo Cliente</a> | <a href="/">Voltar para Home</a>
+        </p>
+    </div>
+
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Gestão</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        .login-card {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .login-card h2 { text-align: center; color: #333; }
+        .btn-login { width: 100%; background: #28a745; color: white; border: none; padding: 10px; margin-top: 15px; font-size: 16px; border-radius: 4px; }
+        .btn-login:hover { background: #218838; }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <h2>Acesso ao Sistema</h2>
+        
+        <form th:action="@{/login}" method="post">
+            
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" placeholder="Digite seu login" required>
+            
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+            
+            <button type="submit" class="btn-login">Entrar</button>
+        </form>
+        
+        <p style="text-align: center; margin-top: 15px;">
+            <a href="/">Voltar para Home</a>
+        </p>
+    </div>
+
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>
