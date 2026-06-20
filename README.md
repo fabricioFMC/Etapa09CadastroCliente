@@ -1,5 +1,5 @@
 Título do projeto:
-Etapa08 - Sistema De Cadastro De Clientes
+Etapa09 - Sistema De Cadastro De Clientes - Conectando o banco de dados com Spring Boot
 
 Status do projeto:
 (em desenvolvimento)
